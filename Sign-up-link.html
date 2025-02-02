@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
     body {
-      font-family: 'Roboto', sans-serif;
-      background-image: url('https://img.freepik.com/free-vector/realistic-elegant-geometric-shapes-background_23-2148423953.jpg?t=st=1738523190~exp=1738526790~hmac=edb1d4af2818453742ae90d87d64b98487bdcab23ae4f7a63f9d4572513f9928&w=740');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2B3A67, #FFCD94);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,56 +24,91 @@
       margin: 0;
     }
 
+    /* Glassmorphism Container */
     .container {
-      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
+      background: rgba(255, 236, 217, 0.1); /* Almond */
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 236, 217, 0.2); /* Almond */
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 350px;
       text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
+
+    /* Header */
     h2 {
-      margin-bottom: 20px;
-      font-weight: 500;
-      color: #0088cc;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+      color: #2B3A67; /* Navy */
+      font-size: 1.75rem;
     }
+
+    /* Labels */
     label {
       display: block;
-      margin-bottom: 5px;
-      font-weight: 400;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #2B3A67; /* Navy */
+      text-align: left;
     }
-    input[type="text"], input[type="email"], input[type="password"] {
+
+    /* Input Fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      box-sizing: border-box;
+      padding: 10px;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(255, 236, 217, 0.3); /* Almond */
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #2B3A67; /* Navy */
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: rgba(255, 236, 217, 0.7); /* Almond */
+      box-shadow: 0 0 8px rgba(255, 236, 217, 0.3); /* Almond */
+    }
+
+    /* Submit Button */
     input[type="submit"] {
       width: 100%;
-      padding: 12px;
-      background-color: #0088cc;
-      color: white;
+      padding: 10px;
+      background: linear-gradient(135deg, #FF6347, #FFA500); /* Red-Orange to Mango */
+      color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 18px;
-      font-weight: 500;
-      transition: background-color 0.3s;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     input[type="submit"]:hover {
-      background-color: #007bb5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
+
+    /* Link */
     .link {
       display: block;
-      margin-top: 10px;
-      color: #0088cc;
+      margin-top: 1rem;
+      color: #FF6347; /* Red-Orange */
       text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s ease;
     }
+
     .link:hover {
+      color: #FFA500; /* Mango */
       text-decoration: underline;
     }
   </style>
@@ -92,9 +132,10 @@
       <label for="referral">Refer by:</label>
       <input type="text" id="referral" name="referral">
 
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Sign Up" onclick="uploadFileToGitHub()">
     </form>
     <a href="index.html" class="link">Already have an account? Log in</a>
   </div>
+  <script src="scripts/main.js"></script>
 </body>
 </html>

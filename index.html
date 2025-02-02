@@ -1,92 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-image: url('https://img.freepik.com/free-vector/realistic-elegant-geometric-shapes-background_23-2148423953.jpg?t=st=1738523190~exp=1738526790~hmac=edb1d4af2818453742ae90d87d64b98487bdcab23ae4f7a63f9d4572513f9928&w=740');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<style>
+		/* General Reset */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-    .container {
-      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-    }
-    h2 {
-      margin-bottom: 20px;
-      font-weight: 500;
-      color: #0088cc;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 400;
-    }
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    input[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      background-color: #0088cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: 500;
-      transition: background-color 0.3s;
-    }
-    input[type="submit"]:hover {
-      background-color: #007bb5;
-    }
-    .link {
-      display: block;
-      margin-top: 10px;
-      color: #0088cc;
-      text-decoration: none;
-    }
-    .link:hover {
-      text-decoration: underline;
-    }
-  </style>
+		/* Body Styling */
+		body {
+			font-family: 'Roboto', sans-serif;
+			background: linear-gradient(135deg, #2B3A67, #FFCD94);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		/* Container */
+		.container {
+			background: rgba(255, 236, 217, 0.8);
+			/* Almond */
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			max-width: 400px;
+			width: 100%;
+			text-align: center;
+		}
+
+		h2 {
+			margin-bottom: 20px;
+			font-weight: 500;
+			color: #2B3A67;
+			/* Navy */
+		}
+
+		label {
+			display: block;
+			margin-bottom: 8px;
+			font-weight: 400;
+			color: #2B3A67;
+			/* Navy */
+			text-align: left;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			width: 100%;
+			padding: 15px;
+			margin-bottom: 15px;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+			font-size: 16px;
+			box-sizing: border-box;
+		}
+
+		input[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #FF6347;
+			/* Red-Orange */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: 500;
+			transition: background-color 0.3s;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #FFA500;
+			/* Mango */
+		}
+
+		.link {
+			display: block;
+			margin-top: 15px;
+			color: #FF6347;
+			/* Red-Orange */
+			text-decoration: none;
+			font-weight: 500;
+			font-size: 14px;
+			/* Slightly smaller font size */
+			transition: color 0.3s ease;
+		}
+
+		.link:hover {
+			color: #FFA500;
+			/* Mango */
+			text-decoration: underline;
+		}
+	</style>
 </head>
+
 <body>
-  <div class="container">
-    <h2>Login</h2>
-    <form action="login_action.php" method="post">
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required>
+	<div class="container">
+		<h2>Login</h2>
+		<form action="login_action.php" method="post">
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email" required>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
 
-      <input type="submit" value="Login">
-    </form>
-    <a href="#" class="link">Forgot your password?</a>
-    <a href="Sign-up-link.html" class="link">Don't have an account? Sign up</a>
-  </div>
+			<input type="submit" value="Login">
+		</form>
+		<a href="#" class="link">Forgot your password?</a>
+		<a href="Sign-up-link.html" class="link">Don't have an account? Sign up</a>
+	</div>
 </body>
+
 </html>
