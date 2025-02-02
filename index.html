@@ -12,7 +12,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      animation: gradientAnimation 10s ease infinite;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,14 +19,8 @@
       margin: 0;
     }
 
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     .container {
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -93,7 +86,7 @@
       <input type="submit" value="Login">
     </form>
     <a href="#" class="link">Forgot your password?</a>
-    <a href="#" class="link">Don't have an account? Sign up</a>
+    <a href="Sign-up-link.html" class="link">Don't have an account? Sign up</a>
   </div>
 </body>
 </html>
