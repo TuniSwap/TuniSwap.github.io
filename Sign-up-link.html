@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Register</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(45deg, #0088cc, #00bfff, #0088cc, #00bfff);
-      background-size: 400% 400%;
-      animation: gradientAnimation 10s ease infinite;
+      background-image: url('https://img.freepik.com/free-vector/realistic-elegant-geometric-shapes-background_23-2148423953.jpg?t=st=1738523190~exp=1738526790~hmac=edb1d4af2818453742ae90d87d64b98487bdcab23ae4f7a63f9d4572513f9928&w=740');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,14 +19,8 @@
       margin: 0;
     }
 
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     .container {
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,7 +38,7 @@
       margin-bottom: 5px;
       font-weight: 400;
     }
-    input[type="text"], input[type="password"] {
+    input[type="text"], input[type="email"], input[type="password"] {
       width: 100%;
       padding: 12px;
       margin-bottom: 10px;
@@ -80,18 +75,26 @@
 </head>
 <body>
   <div class="container">
-    <h2>Login</h2>
-    <form action="login_action.php" method="post">
+    <h2>Sign Up</h2>
+    <form action="register_action.php" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
       <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required>
+      <input type="email" id="email" name="email" required>
 
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required>
 
-      <input type="submit" value="Login">
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password" required>
+
+      <label for="referral">Refer by:</label>
+      <input type="text" id="referral" name="referral">
+
+      <input type="submit" value="Sign Up">
     </form>
-    <a href="#" class="link">Forgot your password?</a>
-    <a href="#" class="link">Don't have an account? Sign up</a>
+    <a href="index.html" class="link">Already have an account? Log in</a>
   </div>
 </body>
 </html>
