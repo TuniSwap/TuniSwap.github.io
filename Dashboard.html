@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         /* General Reset */
         * {
@@ -24,31 +27,97 @@
             margin: 0;
         }
 
-        /* Container */
+        /* Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px; /* Width of the sidebar */
+            height: 100%; /* Full height */
+            background: linear-gradient(135deg, #2B3A67, #FFCD94); /* Gradient background */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar .button {
+            width: 100%;
+            margin: 10px 0;
+            background-color: #FF6347; /* Red-Orange */
+            color: white;
+            border: none;
+            padding: 15px; /* Increased padding for better look */
+            border-radius: 10px; /* Rounded button for a modern touch */
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px; /* Increased font size for readability */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effects */
+        }
+
+        .sidebar .button:hover {
+            background-color: #FFA500; /* Mango */
+            transform: translateY(-5px) scale(1.05); /* Lift and slight scale effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        /* Container Styling */
         .container {
-            background: rgba(255, 236, 217, 0.9); /* Adjust opacity for better contrast */
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.2); /* Increased transparency */
+            padding: 20px; /* Reduced padding */
             border-radius: 15px; /* Increased border-radius for a more modern look */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for a floating effect */
-            max-width: 600px; /* Increased width for a spacious look */
+            max-width: 500px; /* Reduced width for a more compact look */
             width: 100%;
             text-align: center;
             transition: box-shadow 0.3s ease;
+            margin-left: 220px; /* Offset for sidebar */
         }
 
         .container:hover {
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25); /* More pronounced hover effect */
         }
 
+       
+
+        /* Card Styling */
         .card {
-            background: #fff;
-            border-radius: 10px; /* Slightly increased border-radius for better aesthetics */
+            background: rgba(147, 112, 219, 0.3); /* Light purple with transparency */
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.3), rgba(147, 112, 219, 0.1)); /* Gradient effect */
+            border-radius: 15px; /* Smooth edges with increased border-radius */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px 0; /* Adjusted margin for better spacing */
+            padding: 10px; /* Reduced padding */
+            margin: 10px 0; /* Adjusted margin for better spacing */
             text-align: center;
             width: 100%;
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added animation */
+
+            /* Luxury Font Styles */
+            font-family: 'Playfair Display', serif; /* Professional and luxury font */
+            color: #4B0082; /* Indigo color for a luxurious feel */
+            font-size: 16px; /* Slightly smaller font for better readability */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.4); /* Slightly transparent background */
+            border-radius: 10px; /* Smooth edges for section cards */
+            padding: 10px; /* Reduced padding */
+            margin: 5px 0; /* Adjusted margin for spacing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for section cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added animation */
+        }
+        
+
+        .section-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
         }
 
         h2 {
@@ -60,55 +129,42 @@
         .balance,
         .available,
         .investing,
-        .statue {
-            font-size: 24px; /* Increased font size for better visibility */
+        .statue,
+        .active-plan {
+            font-size: 20px; /* Adjusted font size for better visibility */
             font-weight: 500; /* Added weight for emphasis */
             color: #333;
-            padding: 20px 0; /* Added padding for spacing */
-        }
-
-        .balance {
-            border-bottom: 2px solid #FF6347; /* Red-Orange line for separation */
-        }
-
-        .available {
-            border-bottom: 2px dashed #2B3A67; /* Navy dashed line for separation */
-        }
-
-        .investing {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 2px dotted #FF6347; /* Red-Orange dotted line for separation */
-        }
-
-        .statue {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 10px 0; /* Reduced padding */
         }
 
         .actions {
             display: flex;
             justify-content: space-around; /* Adjusted for even spacing */
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .button {
             background-color: #FF6347; /* Red-Orange */
             color: white;
             border: none;
-            padding: 15px 30px; /* Increased padding for better look */
+            padding: 10px 20px; /* Reduced padding */
             border-radius: 50px; /* Rounded button for a modern touch */
             cursor: pointer;
             text-decoration: none;
-            font-size: 16px; /* Increased font size for readability */
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for hover effects */
+            font-size: 14px; /* Slightly smaller font size for readability */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effects */
         }
 
         .button:hover {
             background-color: #FFA500; /* Mango */
-            transform: translateY(-3px); /* Added lift effect on hover */
+            transform: translateY(-5px) scale(1.05); /* Lift and slight scale effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .button:active {
+            background-color: #32CD32; /* Lime Green when selected */
+            box-shadow: 0 0 15px #32CD32; /* Green glow effect when selected */
+            transform: translateY(-3px) scale(1.05); /* Slight lift and scale effect on active */
         }
 
         .icon {
@@ -135,23 +191,120 @@
             background: url('https://image.shutterstock.com/image-vector/statue-liberty-icon-trendy-modern-260nw-1092845739.jpg') no-repeat center center;
             background-size: contain;
         }
+
+        .glowing-text {
+    color: #32CD32; /* Lime Green */
+    animation: glowing-text 1.5s infinite;
+}
+
+@keyframes glowing-text {
+    0% { text-shadow: 0 0 5px #32CD32; }
+    50% { text-shadow: 0 0 15px #32CD32; }
+    100% { text-shadow: 0 0 5px #32CD32; }
+}
+
+
+
+                   
+    .glowing-red-text {
+    color: #FF6347; /* Red */
+    animation: glowing-red-text 1.5s infinite;
+}
+
+@keyframes glowing-red-text {
+    0% { text-shadow: 0 0 5px #FF6347; }
+    50% { text-shadow: 0 0 15px #FF6347; }
+    100% { text-shadow: 0 0 5px #FF6347; }
+}
+
+.glowing-gold-text {
+    color: #e9a209; /* Gold */
+    animation: glowing-gold-text 1.5s infinite;
+}
+
+@keyframes glowing-gold-text {
+    0% { text-shadow: 0 0 5px #FFD700; }
+    50% { text-shadow: 0 0 15px #FFD700; }
+    100% { text-shadow: 0 0 5px #FFD700; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #FFFFFF;
+    animation: spin 1s linear infinite;
+    margin-right: 10px; /* Spacing between icon and text */
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+.animated-header {
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-size: 36px; /* Adjust the size as needed */
+    font-weight: 700;
+    color: #191970; /* Midnight Blue */
+    text-align: center;
+    animation: slide-in 2s ease-out forwards, color-change 4s ease-in-out infinite;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes color-change {
+    0%, 100% {
+        color: #191970; /* Midnight Blue */
+    }
+    50% {
+        color: #111011; /* Burgundy Red */
+    }
+}
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
+    <div class="sidebar">
+        <a href="#" class="button">Profile Settings</a>
+        <a href="#" class="button">Transaction History</a>
+        <a href="#" class="button">Make A Payment</a>
+        <a href="#" class="button">Logout</a>
+    </div>
     <div class="dashboard-container">
         <div class="container">
-            <h2>Dashboard</h2>
+            <h2 class="animated-header">MY DASHBOARD</h2>
             <div class="card">
-                <p class="balance">Balance: $1,234.56</p>
-                <p class="available">Available for Withdraw: $500.00</p>
-                <p class="investing"><span class="icon coin"></span> On Investing: $734.56</p>
-                <p class="statue"><span class="icon statue-icon"></span> Statue: $100.00</p>
-                <div class="actions">
-                    <a href="#" class="button">Add Funds</a>
-                    <a href="#" class="button">Withdraw</a>
+                <div class="section-card">
+    <p class="statue glowing-blue-text">ACTIVE PLAN: <span class="glowing-gold-text">GOLDEN PLAN</span></p>
+</div>
+
+                <div class="section-card">
+                    <p class="statue glowing-gold-text"><span class="loading-icon"></span><span class="glowing-text">RUNNING ...</span></p>
                 </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                <div class="section-card">
+                    <p class="statue glowing-blue-tex">NEXT CASHOUT  =   <span class="glowing-red-text">  IN 2 DAYS </span></p>
+                </div>
+                <div class="actions"> <a href="#" class="button">RUN A NEW INVESTMENT</a> <a href="#" class="button">REQUEST CASHOUT</a> </div>
+             </div> 
+            </div> 
+        </div> 
+    </body> 
+    </html>
