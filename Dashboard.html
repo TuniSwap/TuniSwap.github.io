@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2B3A67, #FFCD94);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 236, 217, 0.9); /* Adjust opacity for better contrast */
+            padding: 30px;
+            border-radius: 15px; /* Increased border-radius for a more modern look */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for a floating effect */
+            max-width: 600px; /* Increased width for a spacious look */
+            width: 100%;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25); /* More pronounced hover effect */
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px; /* Slightly increased border-radius for better aesthetics */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0; /* Adjusted margin for better spacing */
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #2B3A67; /* Navy */
+        }
+
+        .balance,
+        .available,
+        .investing,
+        .statue {
+            font-size: 24px; /* Increased font size for better visibility */
+            font-weight: 500; /* Added weight for emphasis */
+            color: #333;
+            padding: 20px 0; /* Added padding for spacing */
+        }
+
+        .balance {
+            border-bottom: 2px solid #FF6347; /* Red-Orange line for separation */
+        }
+
+        .available {
+            border-bottom: 2px dashed #2B3A67; /* Navy dashed line for separation */
+        }
+
+        .investing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px dotted #FF6347; /* Red-Orange dotted line for separation */
+        }
+
+        .statue {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around; /* Adjusted for even spacing */
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #FF6347; /* Red-Orange */
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Increased padding for better look */
+            border-radius: 50px; /* Rounded button for a modern touch */
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px; /* Increased font size for readability */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for hover effects */
+        }
+
+        .button:hover {
+            background-color: #FFA500; /* Mango */
+            transform: translateY(-3px); /* Added lift effect on hover */
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .coin {
+            width: 24px;
+            height: 24px;
+            background: url('https://image.shutterstock.com/image-vector/gold-coin-icon-trendy-modern-260nw-1092845739.jpg') no-repeat center center;
+            background-size: contain;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .statue-icon {
+            width: 24px;
+            height: 24px;
+            background: url('https://image.shutterstock.com/image-vector/statue-liberty-icon-trendy-modern-260nw-1092845739.jpg') no-repeat center center;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="container">
+            <h2>Dashboard</h2>
+            <div class="card">
+                <p class="balance">Balance: $1,234.56</p>
+                <p class="available">Available for Withdraw: $500.00</p>
+                <p class="investing"><span class="icon coin"></span> On Investing: $734.56</p>
+                <p class="statue"><span class="icon statue-icon"></span> Statue: $100.00</p>
+                <div class="actions">
+                    <a href="#" class="button">Add Funds</a>
+                    <a href="#" class="button">Withdraw</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
