@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Georgia, Times, "Times New Roman", serif;
+            background: linear-gradient(135deg, #2B3A67, #FFCD94);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 220px;
+            /* Adjust the width if needed */
+            height: 100%;
+            /* Full height */
+            background: linear-gradient(135deg, #2B3A67, #FFCD94);
+            /* Gradient background */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            /* Smooth edges */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Optional: Add shadow for a lifted effect */
+        }
+
+        .sidebar .button {
+            width: 100%;
+            margin: 10px 0;
+            background-color: #FF6347;
+            /* Red-Orange */
+            color: white;
+            border: none;
+            padding: 15px;
+            /* Increased padding for better look */
+            border-radius: 50px;
+            /* Rounded button for a modern touch */
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            /* Increased font size for readability */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            /* Added transition for hover effects */
+        }
+
+        .sidebar .button:hover {
+            background-color: #FFA500;
+            /* Mango */
+            transform: translateY(-5px) scale(1.05);
+            /* Lift and slight scale effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+
+        /* Container Styling */
+        .container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin-left: -100px;
+    transition: box-shadow 0.6s ease, margin-left 0.6s ease;
+    animation: hoverAnimation 3s ease-out forwards;
+}
+
+/* Hover effect */
+
+/* Animation for initial load */
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+        .Calculator {
+    background: rgba(255, 255, 255, 0.2); /* Increased transparency */
+    padding: 20px; /* Reduced padding */
+    border-radius: 25px; /* Increased border-radius for a more modern look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for a floating effect */
+    max-width: 300px; /* Reduced width for a more compact look */
+    width: 100%;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    position: absolute; /* Positioning */
+    right: 0; /* Align to right */
+    margin-right: 20px; /* Optional: Add some margin to the right */
+}
+
+.Calculator:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25); /* More pronounced hover effect */
+}
+
+    
+
+        /* Card Styling */
+        .card {
+            background: rgba(147, 112, 219, 0.3);
+            /* Light purple with transparency */
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.3), rgba(147, 112, 219, 0.1));
+            /* Gradient effect */
+            border-radius: 15px;
+            /* Smooth edges with increased border-radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            /* Reduced padding */
+            margin: 10px 0;
+            /* Adjusted margin for better spacing */
+            text-align: center;
+            width: 100%;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Added animation */
+
+            /* Luxury Font Styles */
+            font-family: Georgia, Times, "Times New Roman", serif;
+            /* Professional and luxury font */
+            color: #4B0082;
+            /* Indigo color for a luxurious feel */
+            font-size: 16px;
+            /* Slightly smaller font for better readability */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.4);
+            /* Slightly transparent background */
+            border-radius: 10px;
+            /* Smooth edges for section cards */
+            padding: 10px;
+            /* Reduced padding */
+            margin: 5px 0;
+            /* Adjusted margin for spacing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Box shadow for section cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Added animation */
+        }
+
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #2B3A67;
+            /* Navy */
+        }
+
+        
+        .statue,
+        .active-plan {
+            font-size: 20px;
+            /* Adjusted font size for better visibility */
+            font-weight: 500;
+            /* Added weight for emphasis */
+            color: #333;
+            padding: 10px 0;
+            /* Reduced padding */
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            /* Adjusted for even spacing */
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #FF6347;
+            /* Red-Orange */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            /* Reduced padding */
+            border-radius: 50px;
+            /* Rounded button for a modern touch */
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            /* Slightly smaller font size for readability */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            /* Added transition for hover effects */
+        }
+
+        .button:hover {
+            background-color: #2090b3;
+            /* Mango */
+            transform: translateY(-5px) scale(1.05);
+            /* Lift and slight scale effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+        .button:active {
+            background-color: #32CD32;
+            /* Lime Green when selected */
+            box-shadow: 0 0 15px #32CD32;
+            /* Green glow effect when selected */
+            transform: translateY(-3px) scale(1.05);
+            /* Slight lift and scale effect on active */
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .coin {
+            width: 24px;
+            height: 24px;
+            background: url('https://image.shutterstock.com/image-vector/gold-coin-icon-trendy-modern-260nw-1092845739.jpg') no-repeat center center;
+            background-size: contain;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .statue-icon {
+            width: 24px;
+            height: 24px;
+            background: url('https://image.shutterstock.com/image-vector/statue-liberty-icon-trendy-modern-260nw-1092845739.jpg') no-repeat center center;
+            background-size: contain;
+        }
+
+        .glowing-text {
+            color: #32CD32;
+            /* Lime Green */
+            animation: glowing-text 1.5s infinite;
+        }
+
+        @keyframes glowing-text {
+            0% {
+                text-shadow: 0 0 5px #32CD32;
+            }
+
+            50% {
+                text-shadow: 0 0 15px #32CD32;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #32CD32;
+            }
+        }
+
+
+
+
+        .glowing-red-text {
+            color: #FF6347;
+            /* Red */
+            animation: glowing-red-text 1.5s infinite;
+        }
+
+        @keyframes glowing-red-text {
+            0% {
+                text-shadow: 0 0 5px #FF6347;
+            }
+
+            50% {
+                text-shadow: 0 0 15px #FF6347;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #FF6347;
+            }
+        }
+
+        .glowing-gold-text {
+            color: #e9a209;
+            /* Gold */
+            animation: glowing-gold-text 1.5s infinite;
+        }
+
+        @keyframes glowing-gold-text {
+            0% {
+                text-shadow: 0 0 5px #FFD700;
+            }
+
+            50% {
+                text-shadow: 0 0 15px #FFD700;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #FFD700;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #FFFFFF;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+            /* Spacing between icon and text */
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        .animated-header {
+            font-family: Georgia, Times, "Times New Roman", serif;
+            /* Modern font */
+            font-size: 36px;
+            /* Adjust the size as needed */
+            font-weight: 700;
+            color: #191970;
+            /* Midnight Blue */
+            text-align: center;
+            animation: slide-in 2s ease-out forwards, color-change 4s ease-in-out infinite;
+        }
+
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes color-change {
+
+            0%,
+            100% {
+                color: #191970;
+                /* Midnight Blue */
+            }
+
+            50% {
+                color: #111011;
+                /* Burgundy Red */
+            }
+        }
+
+        .subheader {
+            font-family: Georgia, Times, "Times New Roman", serif;
+            /* Matching the header font */
+            font-size: 20px;
+            /* Adjust the size as needed */
+            font-weight: 400;
+            color: #333333;
+            /* Dark Charcoal */
+            text-align: center;
+            margin-top: 10px;
+            /* Spacing between header and subheader */
+        }
+
+        .hidden-user-id {
+            display: none;
+        }
+
+        .clickable {
+            cursor: pointer;
+            color: #0a0a0a;
+            /* Gold for the clickable text */
+            text-decoration: underline;
+        }
+
+        .hover-message {
+            cursor: pointer;
+        }
+
+    
+
+/* Popup styles */
+/* General popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 500px;
+    top: 200px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Popup content styling */
+.popup-content {
+    background-color: #f9f9f9;  
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Close button styling */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Rolling list styling */
+.rolling-list {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0; /* Light background for better contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for rolling list */
+.rolling-list:hover {
+    background-color: #e0e0e0; /* Slightly darker background on hover */
+    border-color: #bbb; /* Darker border on hover */
+}
+
+/* Style for selected option */
+.rolling-list option:checked {
+    font-weight: bold;
+    color: #28a745; /* Green color for selected option */
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+/* Button styling */
+.buttonp {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+        /* Button styling */
+        
+        /* Button styling */
+        .buttonp.activate {
+            position: relative;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            z-index: 1;
+            overflow: hidden; /* Ensure the burning effect doesn't overflow the button */
+        }
+
+        .buttonp.cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("userId").style.display = "none";
+        });
+
+        function toggleUserId() {
+            var userId = document.getElementById("userId");
+            if (userId.style.display === "none") {
+                userId.style.display = "inline";
+            } else {
+                userId.style.display = "none";
+            }
+        }
+
+        function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+function activate() {
+    // Add your activation logic here
+    alert("your selected Program will take few minutes to Start Running ... ");
+    closePopup();
+}
+
+function openPaymentWindow() {
+    // Open payment.html in a new window with a size of 500x500
+    window.open("payment.html", "Payment", "width=500,height=500,scrollbars=no,toolbar=no,menubar=no,resizable=no,location=no,status=no");
+}
+    </script>
+</head>
+
+<body>
+   
+    <div class="sidebar">
+        <a href="#" class="button">Profile Settings</a>
+        <a href="#" class="button">Transaction History</a>
+        <a href="#" class="button" onclick="openPaymentWindow()">Make A Payment</a>
+        <a href="#" class="button">Logout</a>   
+
+    </div>
+    <div class="dashboard-container">
+        <div class="container">
+               <!-- Popup Window -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p style="font-family: Georgia, Times, 'Times New Roman', serif; font-size: 25px;">Select your Program</p>
+            <select class="rolling-list">
+                <option value="1">BRONZE PLAN</option>
+                <option value="2">SILVER PLAN</option>
+                <option value="3">GOLDEN PLAN</option>
+                <option value="4">DAIMOND PLAN</option>
+            </select>
+            <div class="button-group">
+                <button class="buttonp activate" onclick="activate()">Activate</button>
+                <button class="buttonp cancel" onclick="closePopup()">Cancel</button>
+            </div>
+        </div>
+    </div>
+            <h2 class="animated-header">MY DASHBOARD</h2>
+            <p class="subheader">THE EASIEST PLATFORM TO MAKE PASSIVE INCOME </p>
+
+            <div class="card">
+                <div class="section-card">
+                    <p class="statue blue-text">USER ID:
+                        <span class="gold-text clickable" onclick="toggleUserId()"
+                            title="This is your UserID. Keep it *Safe & Private*  to assure Cashout & Payment">@<span
+                                id="userId" class="hidden-user-id">USER123</span></span>
+                    </p>
+                </div>
+                <div class="section-card">
+                    <p class="statue glowing-blue-text">ACTIVE PLAN: <span class="glowing-gold-text" title="This is you Actual Running Plan 
+    .. you can found more about Plans by Cliking The *RUN NEW INVESTMENT* ">GOLDEN PLAN</span></p>
+                </div>
+
+
+                <div class="section-card">
+                    <p class="statue glowing-gold-text">
+                        <span class="loading-icon"></span>
+                        <span class="glowing-text" title="Your plan is running right now, please be patient">RUNNING
+                            ...</span>
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <p class="statue glowing-blue-text">NEXT CASHOUT =
+                        <span class="glowing-red-text hover-message"
+                            title="After this determined period, you can request a cashout from the button below. All cashouts are manually requested and paid within 72H.">IN
+                            2 DAYS</span>
+                    </p>
+                </div>
+                <div class="actions">
+                    <a href="#" class="button" onclick="openPopup()">RUN A NEW INVESTMENT</a>
+                    <a href="#" class="button">REQUEST CASHOUT</a>
+                </div>
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+  
+    </div>
+</body>
+
+</html>
