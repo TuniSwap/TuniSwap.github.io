@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TuniSwap@index</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+			font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2B3A67, #FFCD94);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+        }
+		.card {
+            background: rgba(255, 236, 217, 0.1); /* Almond */
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 236, 217, 0.2); /* Almond */
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.4);
+            /* Slightly transparent background */
+            border-radius: 10px;
+            /* Smooth edges for section cards */
+            padding: 10px;
+            /* Reduced padding */
+            margin: 5px 0;
+            /* Adjusted margin for spacing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Box shadow for section cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Added animation */
+        }
+
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #2B3A67;
+            /* Navy */
+        }
+
+		/* Container */
+		.container {
+			background: rgba(255, 236, 217, 0.1); /* Almond */
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 236, 217, 0.2); /* Almond */
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect */
+
+/* Animation for initial load */
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+		h2 {
+			margin-bottom: 20px;
+			font-weight: 500;
+			color: #2B3A67;
+			/* Navy */
+		}
+		label {
+			display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #2B3A67; /* Navy */
+      text-align: left;
+    }
+
+    /* Input Fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+		width: 100%;
+      padding: 10px;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(255, 236, 217, 0.3); /* Almond */
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #2B3A67; /* Navy */
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+		border-color: rgba(255, 236, 217, 0.7); /* Almond */
+		box-shadow: 0 0 8px rgba(255, 236, 217, 0.3); /* Almond */
+    }
+
+    /* Submit Button */
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #FF6347, #FFA500); /* Red-Orange to Mango */
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+
+		/* Base link styles */
+		.link {
+      display: block;
+      margin-top: 1rem;
+      color: #77025a; /* Red-Orange */
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .link:hover {
+      color: #8b0663; /* Mango */
+      text-decoration: underline;
+    }
+
+/* Specific styles for the "Forgot your password?" link */
+.forgot-password {
+	color: #8b0663; /* Mango */
+	text-decoration: underline;
+}
+
+
+/* Specific styles for the "Sign up" link */
+.sign-up {
+	color: #8b0663; /* Mango */
+	text-decoration: underline;
+}
+
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input field styling */
+input[type="name"],
+input[type="password"] {
+	width: 100%;
+      padding: 10px;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(255, 236, 217, 0.3); /* Almond */
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #2B3A67; /* Navy */
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="name"]:focus,
+    input[type="password"]:focus {
+      border-color: rgba(255, 236, 217, 0.7); /* Almond */
+      box-shadow: 0 0 8px rgba(255, 236, 217, 0.3); /* Almond */
+    }
+
+/* Login button styling */
+.login-button {
+	width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #FF6347, #FFA500); /* Red-Orange to Mango */
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h2>Login</h2>
+		<form action="register_action.php" method="post">
+			<label for="name">User ID</label>
+			<input type="text" id="name" name="name" required>
+		  
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+			<br><br>
+			<!-- Login Button -->
+			<button type="submit" class="login-button">Login</button>
+		  </form>
+		  <br><br>
+			<a href="#" class="link forgot-password">Forgot your password?</a>
+			<a href="Sign-up-link.html" class="link sign-up">Don't have an account? Sign up</a>
+	</div>
+</body>
+
+</html>
