@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+  <title>TuniSwap@register</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* General Reset */
@@ -57,6 +57,7 @@
     /* Input Fields */
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
     input[type="password"] {
       width: 100%;
       padding: 10px;
@@ -100,7 +101,7 @@
     .link {
       display: block;
       margin-top: 1rem;
-      color: #FF6347; /* Red-Orange */
+      color: #77025a; /* Red-Orange */
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
@@ -108,7 +109,7 @@
     }
 
     .link:hover {
-      color: #FFA500; /* Mango */
+      color: #8b0663; /* Mango */
       text-decoration: underline;
     }
   </style>
@@ -117,7 +118,11 @@
   <div class="container">
     <h2> Make Free Account </h2>
     <form action="register_action.php" method="post">
-      <label for="name">Name:</label>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required>
 
       <label for="email">Email:</label>
