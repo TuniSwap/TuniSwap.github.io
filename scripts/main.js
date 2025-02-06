@@ -2,7 +2,7 @@ const GITHUB_TOKEN = '';
 const REPO_OWNER = 'TuniSwap';
 const REPO_NAME = 'UserDB';
 const FILE_PATH = 'Users/RegisterData.csv';
-let FILE_CONTENT = ''; // Name,Email,Password,Refer
+let FILE_CONTENT = ''; // Tel,Name,Email,Password,Refer
 const COMMIT_MESSAGE = '';
 
 async function uploadFileToGitHub() {
